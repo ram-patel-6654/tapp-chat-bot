@@ -2,7 +2,7 @@ declare global {
   interface Window {
     puter: {
       ai: {
-        chat: (prompt: string, options: { model: string }) => Promise<string>;
+        chat: (prompt: string, options: { model: string }) => Promise<any>;
       };
     };
   }
@@ -30,7 +30,28 @@ export class ChatService {
         model: "gpt-4o-mini"
       });
       
-      return response;
+      console.log('Puter API Response:', response);
+      
+      // Extract the message content from the response object
+      if (typeof response === 'string') {
+        return response;
+      } else if (response && typeof response === 'object') {
+        // Try different possible properties where the message might be
+        if (response.message) {
+          return response.message;
+        } else if (response.content) {
+          return response.content;
+        } else if (response.text) {
+          return response.text;
+        } else if (response.toString && typeof response.toString === 'function') {
+          return response.toString();
+        } else {
+          // Fallback: convert to string
+          return JSON.stringify(response);
+        }
+      }
+      
+      return 'I received an unexpected response format. Please try again.';
     } catch (error) {
       console.error('Chat API Error:', error);
       throw new Error('Sorry, I am unable to process your request right now. Please try again later.');
