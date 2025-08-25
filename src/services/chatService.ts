@@ -36,18 +36,20 @@ export class ChatService {
       if (typeof response === 'string') {
         return response;
       } else if (response && typeof response === 'object') {
-        // Try different possible properties where the message might be
-        if (response.message) {
-          return response.message;
+        // Based on the console log, the structure is response.message.content
+        if (response.message && response.message.content) {
+          return response.message.content;
         } else if (response.content) {
           return response.content;
         } else if (response.text) {
           return response.text;
+        } else if (response.message && typeof response.message === 'string') {
+          return response.message;
         } else if (response.toString && typeof response.toString === 'function') {
           return response.toString();
         } else {
-          // Fallback: convert to string
-          return JSON.stringify(response);
+          // Fallback: convert to string for debugging
+          return `Unexpected response format: ${JSON.stringify(response)}`;
         }
       }
       
