@@ -17,11 +17,22 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 210 92% 45%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --chat-user: 210 92% 45%;
+    --chat-user-foreground: 210 40% 98%;
+    --chat-bot: 210 40% 96.1%;
+    --chat-bot-foreground: 222.2 47.4% 11.2%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(210 92% 45%), hsl(210 92% 55%));
+    --gradient-chat: linear-gradient(180deg, hsl(210 40% 98%), hsl(210 40% 96.1%));
+    
+    --shadow-chat: 0 4px 12px hsl(210 40% 80% / 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -65,11 +76,19 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 92% 55%;
+    --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+
+    --chat-user: 210 92% 55%;
+    --chat-user-foreground: 210 40% 98%;
+    --chat-bot: 217.2 32.6% 17.5%;
+    --chat-bot-foreground: 210 40% 98%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(210 92% 55%), hsl(210 92% 65%));
+    --gradient-chat: linear-gradient(180deg, hsl(222.2 84% 4.9%), hsl(217.2 32.6% 17.5%));
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
